@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1599746865 source:c:\coding projects\echecs\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonctions.h"
+	"structure.h"
+
+1599743847 c:\coding projects\echecs\fonctions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1599744376 source:c:\coding projects\echecs\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonctions.h"
+	"structure.h"
+
+1599730255 c:\coding projects\echecs\structure.h
+
+1599746537 source:c:\coding projects\echecs\fonctionscheck.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonctions.h"
+	"structure.h"
+
