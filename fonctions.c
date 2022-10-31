@@ -6,57 +6,48 @@
 
 void whatIs(int piece, char *display)
 {
-    if (piece == 0 || piece == 9)
+    switch (piece)
     {
-        sprintf(display, "   ");
-    }
-    if (piece == 10)
-    {
-        sprintf(display, "(P)");
-    }
-    if (piece == 20)
-    {
-        sprintf(display, "[p]");
-    }
-    if (piece == 11)
-    {
-        sprintf(display, "(T)");
-    }
-     if (piece == 12)
-    {
-        sprintf(display, "(C)");
-    }
-     if (piece == 13)
-    {
-        sprintf(display, "(J)");
-    }
-     if (piece == 14)
-    {
-        sprintf(display, "(Q)");
-    }
-     if (piece == 15)
-    {
-        sprintf(display, "(K)");
-    }
-    if (piece == 21)
-    {
-        sprintf(display, "[t]");
-    }
-     if (piece == 22)
-    {
-        sprintf(display, "[c]");
-    }
-     if (piece == 23)
-    {
-        sprintf(display, "[j]");
-    }
-     if (piece == 24)
-    {
-        sprintf(display, "[q]");
-    }
-     if (piece == 25)
-    {
-        sprintf(display, "[k]");
+        case 0:
+        case 9:
+            sprintf(display, "   ");
+            break;
+        case 10:
+            sprintf(display, "(P)");
+            break;
+        case 20:
+            sprintf(display, "[p]");
+            break;
+        case 11:
+            sprintf(display, "(T)");
+            break;
+        case 12:
+            sprintf(display, "(C)");
+            break;
+        case 13:
+            sprintf(display, "(J)");
+            break;
+        case 14:
+            sprintf(display, "(Q)");
+            break;
+        case 15:
+            sprintf(display, "(K)");
+            break;
+        case 21:
+            sprintf(display, "[t]");
+            break;
+        case 22:
+            sprintf(display, "[c]");
+            break;
+        case 23:
+            sprintf(display, "[j]");
+            break;
+        case 24:
+            sprintf(display, "[q]");
+            break;
+        case 25:
+            sprintf(display, "[k]");
+            break;
     }
 }
 
@@ -64,10 +55,10 @@ void affichage(int plateau[8][8])
 {
     int i = 0, j = 0;
     printf("     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _\n\n");
-    printf("     A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  | \n\n"); // D'abord la ligne de repères en lettres
+    printf("     A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  | \n\n"); // D'abord la ligne de repï¿½res en lettres
     for (i=7;i>-1;i--)
     {
-        printf("%d |",i+1); // On démarre chaque ligne par un repère numérique
+        printf("%d |",i+1); // On dï¿½marre chaque ligne par un repï¿½re numï¿½rique
         for (j=0;j<8;j++) // On boucle pour imprimer les 8 cases de la ligne
         {
             char displayCase[4] = "";
@@ -142,15 +133,15 @@ int choixCase(int *square, int *lettre, int *chiffre, int plateau[8][8]) // La f
     int choixOk = 0, chiffreTemp = 0, lettreTemp = 0, pieceTemp = 0;
     while (!choixOk)
     {
-        if(userInput(caseChoix,4)) // Le joueur sélectionne une case
+        if(userInput(caseChoix,4)) // Le joueur sï¿½lectionne une case
         {
-            chiffreTemp = caseChoix[1] - '0'; // On convertit le chiffre entrée en entier
+            chiffreTemp = caseChoix[1] - '0'; // On convertit le chiffre entrï¿½e en entier
 
-            testChoix = strpbrk(caseChoix,"abcdefghABCDEFGH"); // On check que la lettre entrée correspond à une du tableau
+            testChoix = strpbrk(caseChoix,"abcdefghABCDEFGH"); // On check que la lettre entrï¿½e correspond ï¿½ une du tableau
 
-            if (testChoix != NULL && chiffreTemp < 9 && chiffreTemp > 0) // On vérifie qu'on a bien entre A et H et de 1 à 8
+            if (testChoix != NULL && chiffreTemp < 9 && chiffreTemp > 0) // On vï¿½rifie qu'on a bien entre A et H et de 1 ï¿½ 8
             {
-                switch (caseChoix[0]) // On convertit la lettre entrée en rangée pour notre double tableau
+                switch (caseChoix[0]) // On convertit la lettre entrï¿½e en rangï¿½e pour notre double tableau
                 {
                     case 'a':
                         lettreTemp=0;
@@ -204,8 +195,8 @@ int choixCase(int *square, int *lettre, int *chiffre, int plateau[8][8]) // La f
                         lettreTemp=10;
                         break;
                 }
-                chiffreTemp--; // On enlève 1 à l'input utilisateur pour faire correspondre avec notre tableau
-                pieceTemp = plateau[chiffreTemp][lettreTemp]; // On récupère quelle piece est sur la case et on indique que le choix est bon
+                chiffreTemp--; // On enlï¿½ve 1 ï¿½ l'input utilisateur pour faire correspondre avec notre tableau
+                pieceTemp = plateau[chiffreTemp][lettreTemp]; // On rï¿½cupï¿½re quelle piece est sur la case et on indique que le choix est bon
                 choixOk = 1;
                 *chiffre = chiffreTemp;
                 *lettre = lettreTemp;
